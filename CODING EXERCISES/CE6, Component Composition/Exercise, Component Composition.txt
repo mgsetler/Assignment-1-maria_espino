@@ -1,0 +1,71 @@
+Exercise: Component Composition
+You are working on a UI prototype for a "Todos" application. At the moment, the prototype displays some basic todos for learning React and a short info message.
+
+Your task is to optimize the code and use React component composition to create a re-usable <Card /> component that can be wrapped around different content (e.g., todo markup, info message markup).
+
+The final UI should look like the initial UI - i.e., no styling changes are required. But the code should change and embraces React's composability.
+
+Create the <Card /> component in the already existing Card.js file and use a <div> as a main element in that component.
+
+LEARNING OBJECTIVE
+Build a user interface by suing component composition
+
+xxxxxxxxxxxxxxxxxxxxxxxx
+HINTS
+Analyze the provided starting code: Which part of the code could be used as a wrapper?
+
+Don't try to create a re-usable Todo or InfoMessage component (or anything like that) => The goal of this exercise is to create a re-usable "wrapper component" that can be wrapped around any content
+
+The <Card /> component you should create should not be focused on wrapping todos, info text or anything else - it should be a generic wrapper
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+SOLUTION EXPLANATION
+In the App component, the <div> with the className "card" is already being used as a wrapper around different kinds of content (todos + info message).
+
+It's therefore not specific to todos or the info message (or anything else). Instead, it's a generic wrapper.
+
+Hence, it's this <div className="card"> that could be extracted as a wrapper into a separate component: The <Card /> component in this exercise.
+
+To implement this <Card /> component, create and export a new Card component function in the Card.js file:
+
+export default function Card() {
+    
+}
+As a next step, you can then simply copy the <div className="card">...</div> code from App.js and paste it as a return value into the newly added Card component in Card.js:
+
+export default function Card() {
+    return <div className="card">...</div>;
+}
+If you were to leave this <Card /> component like this, it would not act as a wrapper though. Instead, if you'd try to wrap it around any content, it would simply replace that content with <div className="card">...</div>.
+
+To make sure that the content passed to <Card /> between its opening and closing tags is not ignored, you must use the special props.children prop and output that prop's value between the <div> tags:
+
+export default function Card(props) {
+    return <div className="card">{props.children}</div>;
+}
+props.children is a special prop managed by React which will yield the content passed between the component's opening and closing tags.
+
+As a last step, you should therefore now use the newly created <Card /> component as a replacement for <div className="card">...</div>.
+
+For example, to wrap the info text:
+
+<Card>
+  <p>Please note: Below are just the most important todos - feel free to add more.</p>
+</Card>
+And also to wrap the todos' content:
+
+<ul>
+  <li className="todo">
+    <Card>
+      <h2>Learn React</h2>
+      <p>Learn React fundamentals & explore core concepts</p>
+    </Card>
+  </li>
+  <li className="todo">
+    <Card>
+      <h2>Practice React</h2>
+      <p>Apply your knowledge & build demo projects</p>
+    </Card>
+  </li>
+</ul>

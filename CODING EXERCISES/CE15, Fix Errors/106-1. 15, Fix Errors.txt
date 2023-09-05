@@ -1,0 +1,39 @@
+
+Exercise: Fix Errors
+For this exercise, imagine that colleagues gave you code they wrote for a React app they're working on.
+
+At the moment, this code is failing and it's your job to find and fix all errors that are hiding in the code.
+
+
+HINTS
+It's more than one error you'll have to find & fix
+
+Look for typos and consider core React (component) rules
+
+You can open the JavaScript console in your browser developer tools to see any error messages that might be thrown. There, amongst a huge amount of warning messages (coming from Udemy, not related to your app), you should see this error message which helps with fixing at least one of the app's errors:
+
+
+
+SOLUTION EXPLANATION
+----------------------------------
+The provided starting code has two errors in it:
+
+<Div> should be <div>
+
+onclick should be onClick
+
+<Div> should be <div>
+
+In React apps, your own, custom components must start with an uppercase character. But those built-in, default HTML element components (like <p>, <input>, <div> etc.) all start with a lowercase character.
+
+That applies to both the opening and closing tag: It should be <div>...</div> instead of <Div>...</Div>.
+
+onclick should be onClick
+
+Event listeners are added to components via the onXYZ props (where XYZ defines the event name) - for "click" events, onClick should be used therefore.
+
+The casing matters here! 
+
+onclick is not the same as onClick - and indeed onclick is wrong and won't work.
+
+Hence, to fix this error, <button onclick={...}> must be changed to <button onClick={...}>.

@@ -1,0 +1,34 @@
+69-1. Exercise: Working with "State"
+You're working on a part of an online shop where a discounted price should be displayed on the screen once the user clicked a button.
+
+Your task is to add an event listener to listen for clicks on the button that's already included in the App component.
+
+Upon a button click, the price should change from $100 to $75.
+
+Add a state value to the existing App component function and make sure the state value is both updated upon button clicks and output as part of the JSX code.
+
+---
+
+Important: When using React Hooks like useState(), make sure to use them via React.useState() instead of just importing and using useState() standalone. This Udemy code editor / environment might fail to display the UI when not using React.useState()!
+
+***
+LEARNING OBJECTIVE
+Update the price of a product dynamically with help of React state.
+
+
+
+*****HINTS******
+Register a click listener by adding a special prop to the <button> element (on...)
+
+Pass a pointer at the to-be-executed function to the event listener prop added to the <button>
+
+Use the useState() Hook to register a state value (via React.useState())
+
+In this Udemy code editor / environment, make sure to use React.useState() instead of just useState() - the latter might fail (despite being valid React code that you may use in your local environment)
+
+Keep in mind that the useState() Hook returns an array with multiple elements
+
+Output the state value via curly braces in your JSX code
+
+Update the state by using the state updating function provided by useState()
+

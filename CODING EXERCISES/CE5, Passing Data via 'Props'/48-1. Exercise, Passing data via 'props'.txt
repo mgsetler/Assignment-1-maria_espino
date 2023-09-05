@@ -1,0 +1,61 @@
+Exercise: Passing Data via "props"
+You're working on the UI prototype for an online shop and your task is to output two product items (via the <Product /> component you find in the Product.js file) below the main page title ("My Demo Shop") in the App component.
+
+The final UI should look like this:
+(picture in the same file)
+
+The two product items should use the same component (<Product />) but output different data (title, price & description). Data should be passed to the components (and output there) via props.
+
+The first product item is expected to display the following information:
+
+Title: Product 1
+
+Price: 10
+
+Description: First product
+
+The second product item is expected to display the following information:
+
+Title: Product 2
+
+Price: 20
+
+Description: Second product
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+LEARNING OBJECTIVES: 
+Share data between multiple components via React's "props" concept.
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+HINTS
+Make sure you output two, not just one, product items in the App component
+
+To re-use the same component for different data, props are needed
+
+Pass the different title, price and description data via props to the <Product /> component
+
+Receive and output the props data via the props object parameter inside of the Product component function
+
+
+
+
+
+<div>
+                <article className="product">
+            <h2>{Product[0].title}</h2>
+            <p className="price">{Product[0].price}</p>
+            <p>{Product[0].description}</p>
+        </article>
+            </div>
+            <div>
+                <article className="product">
+            <h2>{Product[1].title}</h2>
+            <p className="price">{Product[1].price}</p>
+            <p>{Product[1].description}</p>
+        </article>
+            </div>
+
+

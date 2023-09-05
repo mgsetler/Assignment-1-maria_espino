@@ -1,0 +1,58 @@
+Exercise: Building a First Component
+
+Practice what you learned about components and build a new React component on your own!
+
+Your task is to build a custom <ExerciseComponent /> that outputs the text "First exercise - done!" on the screen.
+
+Use the empty ExerciseComponent.js file for your new component code and output this component inside the already existing App component thereafter (replace the existing JSX code in App with your own component).
+
+The final app should display this basic output:
+
+---------------------------------------------------------
+| First Exercise - done!				|
+|							|
+|							|
+---------------------------------------------------------
+
+Important: If the built-in code editor shows an error related to your JSX code, you may ignore that - it's most likely a Udemy bug!
+
+Also make sure you export your components like this:
+
+    export default function SomeComponent() {
+      // ...
+    }
+
+Using this approach might fail (here in the Udemy code editor - normally, this would be absolutely valid code!):
+
+    function SomeComponent() {
+      // ...
+    }
+    export default SomeComponent;
+
+
+LEARNING OBJECTIVE:
+Create and use a custom React component.
+
+------------------------------xcxxxxxxxxxxxx----------------
+in App.js
+
+import React from 'react';
+import MyCmp from './ExerciseComponent.js';
+
+// don't change the Component name "App"
+export default function App() {
+    return <MyCmp></MyCmp>;
+}
+
+
+xxxxxxxxxxxxxxxxxxxxxxxx
+
+in ExerciseComponent.js
+
+import React from 'react';
+// Todo: Add your component code
+// Important: Use export default function MyCmp() { ... }, don't define "export default" on a separate line!
+
+export default function MyCmp(){
+    return <p>First exercise - done!</p>
+}

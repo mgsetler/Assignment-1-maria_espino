@@ -1,0 +1,62 @@
+86.1. Exercise, Rendering Lists of Data
+
+
+You're working on a "Todo List" web app and your task is to output a list of dummy todo items dynamically. For this task, a Todo component has been prepared for you, though you must still add some code to it to receive and output the todo text.
+
+To be more precise: In the App component, you should transform the DUMMY_TODOS array that's provided to you (which must not be changed!) to a list of JSX elements (<Todo> elements to be precise). Every Todo component item must receive and output the todo text via a prop called text.
+
+LEARNING OBJECTIVE:
+Output a static list of todo items in a React component.
+
+
+
+
+*************************
+HINTS
+Arrays can (and should) be transformed into JSX elements via the built-in map() method
+
+Keep in mind that someArray.map(...) must be wrapped with curly braces if used in JSX code
+
+map() takes a function that automatically receives the individual array item as an argument and returns the new value (to which the item should be transformed)
+
+To pass the todo text (which is different for every todo item) to the Todo component, you should use a text prop (props.text inside the Todo component, <Todo text="..."> inside the App component)
+
+
+*****************************
+solution explanation
+---
+As a first step, you should make sure that the Todo component is able to receive and output a text prop:
+
+import React from 'react';
+ 
+export default function Todo(props) {
+    return <li>{props.text}</li>;
+}
+
+
+With that out of the way, you can re-use this Todo component for different todo items.
+
+Therefore, as a next step, you should dynamically map the DUMMY_TODOS array to an array full of <Todo /> JSX elements (which then can be output as part of the App component's JSX code). This is achieved via the built-in map() method (called on DUMMY_TODOS):
+
+import React from 'react';
+ 
+import Todo from './Todo';
+import './styles.css';
+ 
+const DUMMY_TODOS = [
+    'Learn React',
+    'Practice React',
+    'Profit!'
+];
+ 
+// don't change the Component name "App"
+export default function App() {
+    return (
+        <ul>
+          {DUMMY_TODOS.map(todo => <Todo text={todo} />)}
+        </ul>
+    );
+}
+In this code, you see that a (anonymous) function is passed to the map() method. This function is automatically executed by JavaScript - once for every item in DUMMY_TODOS. It automatically receives the item, for which it's currently executed, as an argument and must return the new value to which the item is transformed.
+
+In this case, the old item values (which are plain strings like "Learn React") are transformed to <Todo /> JSX elements. The text property is set on <Todo /> to pass the todo item text to the Todo component.
